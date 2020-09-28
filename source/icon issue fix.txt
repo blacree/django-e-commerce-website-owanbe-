@@ -1,0 +1,28 @@
+{% if field.email %}
+                    <div class=" inputWithIcon">
+                        {{ field }}
+                        <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+                    {% elif field.username %}
+                    <div class=" inputWithIcon">
+                        {{ field }}
+                        <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+                    {% elif field.password1 %}
+                    <div class=" inputWithIcon">
+                        {{ field }}
+                        <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+                    {% elif field.password2 %}
+                    <div class=" inputWithIcon">
+                        {{ field }}
+                        <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+                    {% endif %}
+
+
+
+<div class=" inputWithIcon">
+                        {{ field }}
+                        <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>

@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Owanbe deals</title>
+    <!-- Font Awesome -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="{% static "css/mdb.min.css" %}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+</head>
+
+<body class="d-bg">
+
+    <!-- Start your project here-->
+    <div class="container the_body" style="height: 100vh">
+        <div class="flex-center">
+            <div class="the_page row">
+
+                <div class="left col-md-6">
+                    <div>
+                        <center> <img src="{% static "img/svg/Group 10.svg" %}" width="30%" alt=""><br>
+                        </center>
+                        <div class="left-word ">
+                            Buy and sell at affordable price on OWANDEDEALS.
+                            Enjoy amazing prices when you sign up in OWANBEDEALS
+                        </div>
+                    </div>
+                </div>
+                <div class="right-side col-md-6">
+                    <div class="text-center welcome">
+                        WELCOME TO
+                    </div>
+                    <div class="text-center">
+                        <img class="img_owambe" src="{% static "img/png/Group 8(1).png" %}" alt="">
+                        <div class="log_title">
+                            Log in to start buying and selling.
+                        </div>
+                    </div>
+                    <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    {% if field.email %}
+                    <div class=" inputWithIcon">
+                        {{ field }}
+                        <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+                    {% else %}
+                    <div class=" inputWithIcon">
+                        {{ field }}
+                        <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+                    </div>
+                    {% endif %}
+                      <div class="text-center have_acc">{% for error in field.errors %}
+                          <a6 style="color: red;">{{error}}</a6>
+                          {% endfor %}
+                      </div>
+                      {% endfor %}
+                    <div class="text-center have_acc">{% if form.non_field_errors %}
+                        <a6 style="color: red;">{{form.non_field_errors}}</a6>
+                        {% endif %}
+                    </div>
+                      {% if request.GET.next %}
+                        <input type='hidden' name='next' value="{{request.GET.next}}"/>
+                      {% endif %}
+                      <div class="login-btn btn "><input type='submit' value='Log In' /></div>
+                    </form>
+                      <div class="text-center have_acc">
+                        Dont't have an account?  <a href="{% url "loginsignup:signup" %}">Sign up.</a>
+                      </div>
+                   </div>   
+                </div>
+               
+                    
+                
+            </div>
+        </div>
+    
+    <!-- /Start your project here-->
+   
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static "js/popper.min.js" %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static "js/mdb.min.js" %}"></script>
+</body>
+
+</html>

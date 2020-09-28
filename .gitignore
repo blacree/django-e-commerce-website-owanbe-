@@ -1,0 +1,3 @@
+venv-owanbe/ 
+__pycache__/ 
+*.sqlite3 
